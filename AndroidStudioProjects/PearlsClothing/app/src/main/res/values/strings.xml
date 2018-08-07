@@ -1,0 +1,14 @@
+<resources>
+    <string name="app_name">Pearls Clothing</string>
+
+    <string name="details1">Hand-crafted wears styled with an African flair</string>
+    <string name="details2"> A style for every setting, mood and occasion </string>
+    <string name="pearls">Pearls Clothing</string>
+    <string name="contact">Contact Us</string>
+    <string name="desc1">Simple black dress with radial bead pattern</string>
+    <string name="desc2">Chiffon blouse with sleek black skirt with golden buttons </string>
+    <string name="desc3">Floral pattern skirt and blouse</string>
+    <string name="phone">+2348037964030</string>
+    <string name="site">www.instagram.com/pearls__clothing</string>
+    <string name="location">69 Eric Manuel Close, Surulere, Lagos</string>
+</resources>

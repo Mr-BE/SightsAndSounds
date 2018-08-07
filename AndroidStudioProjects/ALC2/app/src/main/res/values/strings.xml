@@ -1,0 +1,8 @@
+<resources>
+    <string name="app_name">ALC</string>
+
+    <string name="intro_1"> A community specifically designed to bring out the best in you</string>
+    <string name="intro_2">Ready to begin this amazing journey? </string>
+    <string name="title_activity_2">Activity2</string>
+
+</resources>
