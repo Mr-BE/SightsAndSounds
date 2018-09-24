@@ -14,12 +14,16 @@
         android:layout_marginEnd="8dp"
         android:layout_marginStart="8dp"
         android:layout_marginTop="8dp"
+        android:textAppearance="?android:textAppearanceMedium"
+        android:textColor="@color/matteBlack"
+        android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.046"
         tools:text="@string/calabar" />
+
 
     <ImageView
         android:id="@+id/attractionImage_detailed"
@@ -37,19 +41,29 @@
         app:layout_constraintVertical_bias="0.056"
         tools:src="@drawable/balloon" />
 
-    <TextView
-        android:id="@+id/attraction_details"
-        android:layout_width="match_parent"
+    <!--Attraction details text-->
+    <ScrollView
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginBottom="8dp"
         android:layout_marginEnd="8dp"
         android:layout_marginStart="8dp"
-        android:gravity="center_horizontal"
+        android:layout_marginTop="8dp"
+        android:paddingEnd="16dp"
+        android:paddingStart="8dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/attractionImage_detailed"
         app:layout_constraintVertical_bias="0.094"
-        tools:text="@string/select_location" />
+        tools:background="@color/colorAccent">
+
+        <TextView
+            android:id="@+id/attraction_details"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center_horizontal"
+            tools:text="@string/select_location" />
+    </ScrollView>
 </android.support.constraint.ConstraintLayout>
