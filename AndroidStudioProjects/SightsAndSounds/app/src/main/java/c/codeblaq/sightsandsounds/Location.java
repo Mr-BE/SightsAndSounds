@@ -1,6 +1,9 @@
 package c.codeblaq.sightsandsounds;
 
-public class Location {
+import android.os.Parcel;
+import android.os.Parcelable;
+
+public class Location implements Parcelable {
     //Default value for image resources
     private static final int NO_IMAGE_PRESENT = -8;
     /**
@@ -56,6 +59,22 @@ public class Location {
         this.mLocationName = mLocationName;
     }
 
+    /**
+     * Creator
+     */
+    public static final Parcelable.Creator<Location> CREATOR =
+            new Creator<Location>() {
+                @Override
+                public Location createFromParcel(Parcel source) {
+                    return new Location(source);
+                }
+
+                @Override
+                public Location[] newArray(int size) {
+                    return new Location[0];
+                }
+            };
+
     /*Getter methods for the location parameters*/
     //Get attraction name
     public String getmAttractionName() {
@@ -80,5 +99,29 @@ public class Location {
     //Check if image is present
     public boolean hasImage() {
         return mPrimaryImageResource != NO_IMAGE_PRESENT;
+    }
+
+
+    //Read parcelable constructor
+    private Location(Parcel source) {
+        this.mAttractionName = source.readString();
+        this.mAtrractionDetails = source.readString();
+        this.mPrimaryImageResource = source.readInt();
+    }
+
+    /**
+     * Parcelable methods
+     */
+    @Override
+    public int describeContents() {
+        return 0;
+    }
+
+    @Override
+    public void writeToParcel(Parcel dest, int flags) {
+        /*Write activity content to parcel*/
+        dest.writeString(mAttractionName);
+        dest.writeString(mAtrractionDetails);
+        dest.writeInt(mPrimaryImageResource);
     }
 }

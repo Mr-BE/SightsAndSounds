@@ -16,10 +16,6 @@ import butterknife.BindView;
 import butterknife.ButterKnife;
 
 public class HistoricalFragment extends Fragment {
-    /*Intent parameters*/
-    final String ATTRACTION_KEY = "Attraction";
-    final String ATTRACTION_DETAILS_KEY = "Details";
-    final String ATTRACTION_PRI_IMAGE_KEY = "Image";
 
     //Locate view to be used for list items
     @BindView(R.id.list)
@@ -34,9 +30,9 @@ public class HistoricalFragment extends Fragment {
 
         //Create an arrayList of attractions
         final ArrayList<Location> locations = new ArrayList<>();
-        locations.add(new Location(getString(R.string.old_residency), getString(R.string.calabar), R.drawable.old_residency));
-        locations.add(new Location(getString(R.string.hope_waddell), getString(R.string.calabar), R.drawable.hopewaddell));
-        locations.add(new Location(getString(R.string.slave_history), getString(R.string.calabar), R.drawable.slavehistorymuseum1));
+        locations.add(new Location(getString(R.string.old_residency), getString(R.string.calabar), R.drawable.old_residency, getString(R.string.old_recidency_dets)));
+        locations.add(new Location(getString(R.string.hope_waddell), getString(R.string.calabar), R.drawable.hopewaddell, getString(R.string.hope_waddell_dets)));
+        locations.add(new Location(getString(R.string.slave_history), getString(R.string.calabar), R.drawable.slavehistorymuseum1, getString(R.string.slave_history_dets)));
 
         //Setup ArrayAdapter
         LocationAdapter itemsAdapter = new LocationAdapter(
@@ -47,6 +43,20 @@ public class HistoricalFragment extends Fragment {
 
         //Attach listview to adapter
         listView.setAdapter(itemsAdapter);
+        //Set up onItemClickListener
+        listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                //Get ListView item position and cast to location object
+                Location location = (Location) listView.getItemAtPosition(position);
+
+                //Initialise intent
+                Intent intent = new Intent(getActivity(), FullDetailsActivity.class);
+                //put location as an extra
+                intent.putExtra(FullDetailsActivity.LOCATION, location);
+                startActivity(intent);
+            }
+        });
         return rootView;
     }
 

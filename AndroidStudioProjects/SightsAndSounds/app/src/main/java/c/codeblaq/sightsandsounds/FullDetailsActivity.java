@@ -10,10 +10,8 @@ import butterknife.BindView;
 import butterknife.ButterKnife;
 
 public class FullDetailsActivity extends AppCompatActivity {
-    /*Intent parameters*/
-    final String ATTRACTION_KEY = "Attraction";
-    final String ATTRACTION_DETAILS_KEY = "Details";
-    final String ATTRACTION_PRI_IMAGE_KEY = "Image";
+    /*Constant for location*/
+    public static final String LOCATION = "c.codeblaq.sightsandsounds.LOCATION";
 
     /*Locate views to be populated by intent*/
     //Attraction name
@@ -25,6 +23,7 @@ public class FullDetailsActivity extends AppCompatActivity {
     //Full details of attraction
     @BindView(R.id.attraction_details)
     TextView fullAttractionDetails;
+    private Location mLocation;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -33,17 +32,30 @@ public class FullDetailsActivity extends AppCompatActivity {
 
         /*Attach Butterknife*/
         ButterKnife.bind(this);
+        //Read values from parcel
+        readDisplayValues();
+        //display read values
+        displayValues(fullAttractionName, fullAttractionDetails, fullAttractionImage);
+    }
 
-        //Get intent values
-        Intent detailsIntent = getIntent();
-        // Locate attraction name from intent
-        String receivedAttraction = detailsIntent.getStringExtra(ATTRACTION_KEY);
-        int receivedImageResource = detailsIntent.getIntExtra(ATTRACTION_PRI_IMAGE_KEY, 0);
-        String receivedDetails = detailsIntent.getStringExtra(ATTRACTION_DETAILS_KEY);
+    /**
+     * Helper method to display values read from parcel
+     *
+     * @param attractionName    is the name of the location
+     * @param attractionDetails is the details text associated with the location
+     * @param attractionImage   is the image of the location
+     */
+    private void displayValues(TextView attractionName, TextView attractionDetails, ImageView attractionImage) {
+        fullAttractionName.setText(mLocation.getmAttractionName());
+        fullAttractionDetails.setText(mLocation.getmAtrractionDetails());
+        fullAttractionImage.setImageResource(mLocation.getmPrimaryImageResource());
+    }
 
-        /*Set received values to Views*/
-        fullAttractionName.setText(receivedAttraction);
-        fullAttractionDetails.setText(receivedDetails);
-        fullAttractionImage.setImageResource(receivedImageResource);
+    /**
+     * Helper method to read values from parcel
+     */
+    private void readDisplayValues() {
+        Intent intent = getIntent();
+        mLocation = intent.getParcelableExtra(LOCATION);
     }
 }

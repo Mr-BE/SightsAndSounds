@@ -129,12 +129,29 @@
     <string name="duke_town">Duke Town Primary School</string>
     <!--Name text for Hope Waddell Secondary School-->
     <string name="hope_waddell">Hope Waddell Training Institution</string>
+    <!--Text for Hope Waddell details-->
+    <string name="hope_waddell_dets">
+        Established in 1895, this is one of the oldest institutions in the Nigeria.\n
+        Originally set up as a base for arriving Scottish missionaries, it quickly transformed
+        into an educational and skills acquisition center.
+    </string>
+
     <!--Name text for Mary Slessor's Residence-->
     <string name="mary_slessor">Mary Slessor\'s Residence</string>
+
     <!--Name text for old residency-->
     <string name="old_residency">Old Residency</string>
+    <!--Text for old residency details-->
+    <string name="old_recidency_dets">This was originally the residence of the highest ranked
+    British personnel in Calabar. It had been transformed to the residence of the military governors
+    during the military regime in Nigeria.
+        \nHowever, today, it serves a different purpose of a multifaceted museum.
+    </string>
     <!--Name text Slave history museum-->
     <string name="slave_history">Slave History Museum</string>
+    <string name="slave_history_dets">Located in the Marina Resort along the Calabar harbour,
+    the Slave History Museum shows explicitly, the travails of Nigeria slaves who were sold
+    through the Calabar sea port.</string>
 
     <!--String values for Art Fragment-->
     <!--Name text for the Calabar Carnival-->
@@ -188,14 +205,7 @@
     <string name="ikom_monoliths">Ikom Monoliths</string>
     <!--Text for monolith-->
     <string name="monolith_dets">
-        The Ikom monoliths are a series of volcanic-stone monoliths from the area of Ikom, Cross River State, Nigeria.
-       ; inhabited by Ekoi people who live in scattered villages.They are estimated to have been made between 200 and 1850 AD.\n
-        The stone monoliths are known locally as Akwanshi or Atal or Alaptal.
-        They are carved monoliths which occur in groups numbering about 350 stones located about
-        35 sites which are evenly distributed within seven main clans of Cross River State
-        namely; Abanyom; Akaju ; Akpanobong ; Nde ; Nnam in the Ejagham tribe; Nselle, and Nta.\n
-        They were recently added to the World Monuments Fund's list of sites in danger and are
-        being considered for inclusion onto UNESCO's World Heritage Site list.
+
     </string>
 
 </resources>

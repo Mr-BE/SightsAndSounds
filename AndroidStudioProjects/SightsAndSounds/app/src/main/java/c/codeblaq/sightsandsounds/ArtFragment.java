@@ -1,8 +1,6 @@
 package c.codeblaq.sightsandsounds;
 
-import android.content.Context;
 import android.content.Intent;
-import android.net.Uri;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
@@ -17,10 +15,6 @@ import butterknife.BindView;
 import butterknife.ButterKnife;
 
 public class ArtFragment extends Fragment {
-    /*Intent parameters*/
-    final String ATTRACTION_KEY = "Attraction";
-    final String ATTRACTION_DETAILS_KEY = "Details";
-    final String ATTRACTION_PRI_IMAGE_KEY = "Image";
 
     //Locate view to be used for list items
     @BindView(R.id.list)
@@ -51,20 +45,14 @@ public class ArtFragment extends Fragment {
         listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+//
                 //Get each position in the list view and store it as a "Location" object
-                Location location = locations.get(position);
-                //Get Attraction name
-                String attractionName = location.getmAttractionName();
-                //Get Attraction Details
-                String attractionDetails = location.getmAtrractionDetails();
-                //Get Attraction primary image
-                int attractionPrimImage = location.getmPrimaryImageResource();
-
-                /*Initialize intent*/
+                Location location = (Location) listView.getItemAtPosition(position);
+                //Initialize intent
                 Intent detailsIntent = new Intent(getContext(), FullDetailsActivity.class);
-                detailsIntent.putExtra(ATTRACTION_KEY, attractionName);
-                detailsIntent.putExtra(ATTRACTION_DETAILS_KEY, attractionDetails);
-                detailsIntent.putExtra(ATTRACTION_PRI_IMAGE_KEY, attractionPrimImage);
+                //set location content as parcelable extra
+                detailsIntent.putExtra(FullDetailsActivity.LOCATION, location);
+                //execute intent
                 startActivity(detailsIntent);
             }
         });
@@ -72,11 +60,5 @@ public class ArtFragment extends Fragment {
         //Attach listview to adapter
         listView.setAdapter(itemsAdapter);
         return rootView;
-    }
-
-    //Called when fragment is closed
-    @Override
-    public void onStop() {
-        super.onStop();
     }
 }

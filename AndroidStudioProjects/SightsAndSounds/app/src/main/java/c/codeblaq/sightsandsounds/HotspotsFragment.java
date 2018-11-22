@@ -18,11 +18,6 @@ import butterknife.ButterKnife;
 
 public class HotspotsFragment extends Fragment {
 
-    /*Intent parameters*/
-    final String ATTRACTION_KEY = "Attraction";
-    final String ATTRACTION_DETAILS_KEY = "Details";
-    final String ATTRACTION_PRI_IMAGE_KEY = "Image";
-
     //Locate view to be used for list items
     @BindView(R.id.list)
     ListView listView;
@@ -50,19 +45,11 @@ public class HotspotsFragment extends Fragment {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
                 //Get each position in the list view and store it as a "Location" object
-                Location location = locations.get(position);
-                //Get Attraction name
-                String attractionName = location.getmAttractionName();
-                //Get Attraction Details
-                String attractionDetails = location.getmAtrractionDetails();
-                //Get Attraction primary image
-                int attractionPrimImage = location.getmPrimaryImageResource();
+                Location location = (Location) listView.getItemAtPosition(position);
 
                 /*Initialize intent*/
                 Intent detailsIntent = new Intent(getContext(), FullDetailsActivity.class);
-                detailsIntent.putExtra(ATTRACTION_KEY, attractionName);
-                detailsIntent.putExtra(ATTRACTION_DETAILS_KEY, attractionDetails);
-                detailsIntent.putExtra(ATTRACTION_PRI_IMAGE_KEY, attractionPrimImage);
+                detailsIntent.putExtra(FullDetailsActivity.LOCATION, location);
                 startActivity(detailsIntent);
             }
         });
